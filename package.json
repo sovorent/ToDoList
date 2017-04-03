@@ -1,0 +1,29 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "To Do List API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sovorent/ToDoList.git"
+  },
+  "keywords": [
+    "todolist",
+    "nodejs",
+    "express",
+    "api"
+  ],
+  "author": "Bunyapont Jongpremkitpaisan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sovorent/ToDoList/issues"
+  },
+  "homepage": "https://github.com/sovorent/ToDoList#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
