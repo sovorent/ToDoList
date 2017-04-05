@@ -51,7 +51,7 @@ exports.delete_a_task = function(req, res) {
   }, function(err, task) {
     if (err)
       res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+    res.json({message: 'Task successfully deleted' });
   });
 };
 
