@@ -22,8 +22,8 @@ $ npm install
   },
   "status": {
     "type": [{
-      "type": "String",
-      "enum": ["pending", "done"]
+        "type": "String",
+        "enum": ["pending", "done"]
     }],
     "default": ["pending"]
   }
