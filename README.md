@@ -1,7 +1,24 @@
 ### ToDoList API
 
-To-Do lists API from Node.js + Express + MongodDB 
+To-Do lists API built by Node.js(Express) and MongoDB
 
+**File Structure :**
+```
+.
+|___config
+|  |__config.json
+|___driver
+|  |__monogodb
+|  |__mysql
+|___models
+|  |__todoModels.js
+|___controller
+|  |__apiController
+|  |__setupController
+|___app.js
+|___package.json
+```
+** File Detail **
 ### Setup
 Start MongoDB server
 ```bash
@@ -48,3 +65,16 @@ PUT    /tasks/:taskId
 DELETE /tasks/:taskId
 DELETE /tasks
 ```
+### How to use 
+Note: we use 3000 as default port
+* GET    http://localhost:3000/tasks
+* GET    http://localhost:3000/tasks/:taskId
+* POST   http://localhost:3000/tasks
+* PUT    http://localhost:3000/tasks/:taskId
+* DELETE http://localhost:3000/tasks/:taskId
+* DELETE http://localhost:3000/tasks
+### Testing with mocha
+```bash
+$ mocha
+```
+list testing topic
