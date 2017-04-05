@@ -11,7 +11,10 @@ Install all dependencies by use npm
 ```bash
 $ npm install
 ```
-
+ API will be executed by running the command
+```bash
+$ node server.js
+```
 ### Models
 ```json
 {
