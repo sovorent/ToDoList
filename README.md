@@ -9,23 +9,23 @@ $ npm install
 ### Models
 ```json
 {
-  name: {
-    type: String,
-    Required: 'Kindly enter the name of the task'
+  "name": {
+    "type": String,
+    "Required": "Kindly enter the name of the task"
   },
-  contents: {
-    type: String
+  "contents": {
+    "type": String
   },
-  Created_date: {
-    type: Date,
-    default: Date.now
+  "Created_date": {
+    "type": Date,
+    "default": Date.now
   },
-  status: {
-    type: [{
-      type: String,
-      enum: ['pending', 'done']
+  "status": {
+    "type": [{
+      "type": String,
+      "enum": ['pending', 'done']
     }],
-    default: ['pending']
+    "default": ['pending']
   }
 }
 ```
