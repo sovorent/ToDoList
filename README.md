@@ -10,22 +10,22 @@ $ npm install
 ```json
 {
   "name": {
-    "type": String,
+    "type": "String",
     "Required": "Kindly enter the name of the task"
   },
   "contents": {
-    "type": String
+    "type": "String"
   },
   "Created_date": {
-    "type": Date,
-    "default": Date.now
+    "type": "Date",
+    "default": "Date.now"
   },
   "status": {
     "type": [{
-      "type": String,
-      "enum": ['pending', 'done']
+      "type": "String",
+      "enum": ["pending", "done"]
     }],
-    "default": ['pending']
+    "default": ["pending"]
   }
 }
 ```
