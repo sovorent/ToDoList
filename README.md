@@ -1,11 +1,17 @@
 ### ToDoList API
 
-Node.js + Express + mongodb 
+To-Do lists API from Node.js + Express + MongodDB 
 
 ### Setup
+Start MongoDB server
+```bash
+$ mongod
+```
+Install all dependencies by use npm
 ```bash
 $ npm install
 ```
+
 ### Models
 ```json
 {
