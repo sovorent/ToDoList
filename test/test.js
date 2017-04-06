@@ -12,58 +12,46 @@ var GET_ok = 200;
 
 var server = supertest.agent("http://localhost:3000");
 
+var prefix_root_url = '/api/v1.0/'
 // UNIT test begin
 
 describe("Access URL",function(){
 
-  // #1 should return home page
-
-  it("Should access GET /tasks",function(done){
-
-    // calling home page api
+  it("Test GET /api/v1.0/tasks",function(done){
     server
-    .get("/tasks")
+    .get( prefix_root_url + 'tasks')
     .expect("Content-type",/json/)
-    .expect(200) // THis is HTTP response
+    .expect(200)
     .end(function(err,res){
-      // HTTP status should be 200
       res.status.should.equal(200);
-      // Error key should be false.
       if (err != null) res.body.error.should.equal(false);
       done();
     });
   });
 
-  it("Shouldn't access GET /",function(done){
-
-    // calling home page api
+  it("Test Not-found URL",function(done){
     server
     .get("/")
     .expect("Content-type",/json/)
-    .expect(404) // THis is HTTP response
+    .expect(404)
     .end(function(err,res){
-      // HTTP status should be 200
       res.status.should.equal(404);
-      // Error key should be false.
       if (err != null) res.body.error.should.equal(false);
       done();
     });
   });
 
-  it("should add data POST /tasks",function(done){
-
-    //calling ADD api
+/*  it("Test POST /api/v1.0/tasks",function(done){
     server
-    .post('/tasks')
-    .send({name : "Exercise", contents : "Play football"})
+    .post( prefix_root_url + 'tasks')
+    .send({name : "Exercise", content : "Play football"})
     .expect("Content-type",/json/)
     .expect(201)
     .end(function(err,res){
       res.status.should.equal(201);
       if(!err)res.body.error.should.equal(false);
-      //res.body.data.should.equal(40);
       done();
     });
-  });
+  });*/
 
 });

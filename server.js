@@ -34,6 +34,6 @@ var express = require('express'),
 
 ///////////////////////////////////////
 app.listen(port,function(){
-	console.log('API server started on port : ' + port);
+	console.log('todoList API server started on port : ' + port);
 });
 

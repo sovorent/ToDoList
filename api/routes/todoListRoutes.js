@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(app) {
   var todoList = require('../controllers/todoListController');
-  var prefix_root_url = '/api/v1.0/'
+  var prefix_root_url = '/api/v1.0/' ;
 
   app.route(prefix_root_url + 'tasks')
     .get(todoList.list_all_tasks)
