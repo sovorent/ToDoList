@@ -7,9 +7,9 @@ var Schema = mongoose.Schema;
 var TaskSchema = new Schema({
   name: {
     type: String,
-    Required: true
+    required: true
   },
-  contents: {
+  content: {
     type: String
   },
   status: {

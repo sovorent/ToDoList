@@ -8,11 +8,10 @@ exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.status(200).json(task);
+    
   });
 };
-
-
 
 
 exports.create_a_task = function(req, res) {
@@ -20,7 +19,7 @@ exports.create_a_task = function(req, res) {
   new_task.save(function(err, task) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.status(201).json(task);
   });
 };
 
@@ -29,7 +28,7 @@ exports.read_a_task = function(req, res) {
   Task.findById(req.params.taskId, function(err, task) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.status(200).json(task);
   });
 };
 
@@ -38,14 +37,12 @@ exports.update_a_task = function(req, res) {
   Task.findOneAndUpdate(req.params.taskId, req.body, {new: true}, function(err, task) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.status(201).json(task);
   });
 };
 
 
 exports.delete_a_task = function(req, res) {
-
-
   Task.remove({
     _id: req.params.taskId
   }, function(err, task) {
@@ -56,7 +53,6 @@ exports.delete_a_task = function(req, res) {
 };
 
 exports.delete_all_tasks = function(req, res) {
-
   Task.remove({}, function(err, task) {
     if (err)
       res.send(err);
