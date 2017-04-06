@@ -19,27 +19,40 @@ To-Do lists API built by Node.js(Express) and MongoDB
 |___README.md
 
 ```
+
 ### Files detail
-* todoListController.js
-* todoListModels.js
-* todoListController.js
+
+* todoListController.js   functions to do something with mongoDB
+* todoListModels.js       models for todoList api
+* todoListRoutes.js       HTTP request/response for specific endpoint   
+* test.js                 script for test api
+* server.js               contain protocols for create server
+* package.json            is a file that gives the necessary information to npm
+
+### Routes
+```
+GET    /tasks           view all items in the list
+GET    /tasks/:taskId   view a single task in the list
+POST   /tasks           add a new task to the list 
+PUT    /tasks/:taskId   edit existing task (entire object)
+PATCH  /tasks/:taskId   edit existing task (partial object)
+DELETE /tasks/:taskId   delete a single task in the list by task id
+DELETE /tasks           delete all task in list
+```
+
 ### Status Codes
+
 200 OK – [GET]
-The Consumer requested data from the Server, and the Server found it for them (Idempotent)
 201 CREATED – [POST/PUT/PATCH]
-The Consumer gave the Server data, and the Server created a resource
 204 NO CONTENT – [DELETE]
-The Consumer asked the Server to delete a Resource, and the Server deleted it
-400 INVALID REQUEST – [POST/PUT/PATCH]
-The Consumer gave bad data to the Server, and the Server did nothing with it (Idempotent)
 404 NOT FOUND – [*]
-The Consumer referenced an inexistant Resource or Collection, and the Server did nothing (Idempotent)
 500 INTERNAL SERVER ERROR – [*]
-The Server encountered an error, and the Consumer has no knowledge if the request was successful
+
+
 ### Setup
-Start MongoDB server
+Clone this repository by
 ```bash
-$ mongod
+$ git clone https://github.com/sovorent/ToDoList.git
 ```
 Install all dependencies by use npm
 ```bash
@@ -51,19 +64,17 @@ $ npm run start
 ```
 > Note: [nodemon](https://nodemon.io/) is a utility that will monitor for any changes in your source and automatically restart your server
 
-### Models
+
+### Task Schema 
+
 ```json
 {
   "name": {
     "type": "String",
-    "Required": "Kindly enter the name of the task"
+    "required": true
   },
   "contents": {
     "type": "String"
-  },
-  "Created_date": {
-    "type": "Date",
-    "default": "Date.now"
   },
   "status": {
     "type": [{
@@ -74,25 +85,21 @@ $ npm run start
   }
 }
 ```
-### Routes
-```
-GET    /tasks           view all items in the list
-GET    /tasks/:taskId   view a single task in the list
-POST   /tasks           add a new task to the list 
-PUT    /tasks/:taskId   edit existing task (entire object)
-PATCH  /tasks/:taskId   edit existing task (partial object)
-DELETE /tasks/:taskId   delete a single task in the list by task id
-DELETE /tasks           delete all task in list
-```
+
 ### How to use 
-> Note: we use 3000 as default port
+> Note: using port: 3000 as default port
+
+* **GET**    http://localhost:3000/tasks            
+* **GET**    http://localhost:3000/tasks/:taskId      
+* **POST**   http://localhost:3000/tasks           
+ ```json { "name": "task", "content": "task details" } ```
+* **PUT**    http://localhost:3000/tasks/:taskId
+ ```json { "status": "done" } ```
+* **DELETE** http://localhost:3000/tasks/:taskId
+* **DELETE** http://localhost:3000/tasks
+
 > Note2: better if use [postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) as a tool for test this api
-* GET    http://localhost:3000/tasks
-* GET    http://localhost:3000/tasks/:taskId
-* POST   http://localhost:3000/tasks           { "name": "task", "content": "task details" }
-* PUT    http://localhost:3000/tasks/:taskId
-* DELETE http://localhost:3000/tasks/:taskId
-* DELETE http://localhost:3000/tasks
+
 ### Testing with mocha
 ```bash
 $ mocha
