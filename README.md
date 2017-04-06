@@ -58,18 +58,19 @@ $ node server.js
 ### Routes
 
 ```
-GET    /tasks
-GET    /tasks/:taskId
-POST   /tasks
-PUT    /tasks/:taskId
-DELETE /tasks/:taskId
-DELETE /tasks
+GET    /tasks           view all items in the list
+GET    /tasks/:taskId   view a single task in the list
+POST   /tasks           add a new task to the list (entire Resource)
+PUT    /tasks/:taskId   edit existing task (only changed attributes)
+PATCH  /tasks/:taskId   edit
+DELETE /tasks/:taskId   delete a single task in the list by task id
+DELETE /tasks           delete all task in list
 ```
 ### How to use 
 Note: we use 3000 as default port
 * GET    http://localhost:3000/tasks
 * GET    http://localhost:3000/tasks/:taskId
-* POST   http://localhost:3000/tasks
+* POST   http://localhost:3000/tasks           { "name": "task", "content": "task details" }
 * PUT    http://localhost:3000/tasks/:taskId
 * DELETE http://localhost:3000/tasks/:taskId
 * DELETE http://localhost:3000/tasks
@@ -78,3 +79,8 @@ Note: we use 3000 as default port
 $ mocha
 ```
 list testing topic
+
+
+### Reference
+https://codeplanet.io/principles-good-restful-api-design/
+https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
